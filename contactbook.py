@@ -35,35 +35,37 @@ def get_selected_contact(event):
 
 root = Tk()
 root.title("Contact Book")
+root.geometry("600x400")
+
+font_style = ("Helvetica Neue", 16)
 
 entry_frame = Frame(root)
-entry_frame.pack(side=TOP, fill=X)
+entry_frame.pack(side=TOP, fill=X, padx=20, pady=20)
 
-name_label = Label(entry_frame, text="Name:")
-name_label.pack(side=LEFT)
-name_entry = Entry(entry_frame)
-name_entry.pack(side=LEFT, expand=True, fill=X)
+name_label = Label(entry_frame, text="Name:", font=font_style)
+name_label.pack(side=LEFT, padx=10)
+name_entry = Entry(entry_frame, font=font_style)
+name_entry.pack(side=LEFT, expand=True, fill=X, padx=10)
 
-phone_label = Label(entry_frame, text="Phone:")
-phone_label.pack(side=LEFT)
-phone_entry = Entry(entry_frame)
-phone_entry.pack(side=LEFT, expand=True, fill=X)
+phone_label = Label(entry_frame, text="Phone:", font=font_style)
+phone_label.pack(side=LEFT, padx=10)
+phone_entry = Entry(entry_frame, font=font_style)
+phone_entry.pack(side=LEFT, expand=True, fill=X, padx=10)
 
 button_frame = Frame(root)
-button_frame.pack(side=TOP, fill=X)
+button_frame.pack(side=TOP, fill=X, padx=20, pady=20)
 
-add_button = Button(button_frame, text="Add Contact", command=add_contact)
-add_button.pack(side=LEFT)
+add_button = Button(button_frame, text="Add Contact", command=add_contact, font=font_style)
+add_button.pack(side=LEFT, padx=10)
 
-delete_button = Button(button_frame, text="Delete Contact", command=delete_contact)
-delete_button.pack(side=LEFT)
+delete_button = Button(button_frame, text="Delete Contact", command=delete_contact, font=font_style)
+delete_button.pack(side=LEFT, padx=10)
 
-clear_button = Button(button_frame, text="Clear Contacts", command=clear_contacts)
-clear_button.pack(side=LEFT)
+clear_button = Button(button_frame, text="Clear Contacts", command=clear_contacts, font=font_style)
+clear_button.pack(side=LEFT, padx=10)
 
-# Making the contact list bigger and modifying the layout to be more horizontal
-contact_list = Listbox(root, height=10, width=50)
-contact_list.pack(side=TOP, fill=BOTH, expand=True)
+contact_list = Listbox(root, height=10, width=50, font=font_style)
+contact_list.pack(side=TOP, fill=BOTH, expand=True, padx=20, pady=20)
 contact_list.bind('<<ListboxSelect>>', get_selected_contact)
 
 root.mainloop()
